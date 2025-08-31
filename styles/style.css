@@ -181,6 +181,36 @@
     border: 2px green dashed;
     padding: 24px;
     border-radius: 12px;
+
+    max-width: 352px;
+    
+}
+
+.history-title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-top-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.history-top-section button{
+    background-color: rgba(0, 166, 62, 1);
+    height: 52px;
+    border-radius: 50px;
+    width: 114px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.history-title h4{
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 .card-top-section{
@@ -263,3 +293,6 @@
     justify-content: center;
     gap: 6px;
 }
+
+
+
