@@ -170,15 +170,17 @@
 .card-item{
     border: 2px red solid;
     /* height: 300px; */
-    /* max-width: 436.67px; */
+    /* width: 436.67px; */
     padding: 32px;
+    border-radius: 12px;
 }
 
 .history-section{
     grid-row: 1 / 4;
     grid-column: 4 / 5;
     border: 2px green dashed;
-    padding: 32px;
+    padding: 24px;
+    border-radius: 12px;
 }
 
 .card-top-section{
@@ -192,6 +194,10 @@
     height: 60px;
     width: 60px;
     border-radius: 16px;
+}
+
+#police-container-color{
+    background-color: rgba(223, 239, 255, 1);
 }
 
 .icon{
