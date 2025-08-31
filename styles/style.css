@@ -123,6 +123,7 @@
 
 .hero-section{
     /* border: 2px red solid; */
+    max-width: 1800px;
     height: 239px;
     background: radial-gradient(circle, #006747, #013223);
     display: flex;
@@ -153,4 +154,106 @@
     font-weight: 600;
     margin: 0px;
     color: white;
+}
+
+/* Main Section */
+
+.main-section{
+    max-width: 1800px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    border: 2px green solid;
+}
+
+.card-item{
+    border: 2px red solid;
+    /* height: 300px; */
+    /* max-width: 436.67px; */
+    padding: 32px;
+}
+
+.history-section{
+    grid-row: 1 / 4;
+    grid-column: 4 / 5;
+    border: 2px green dashed;
+    padding: 32px;
+}
+
+.card-top-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.card-icon-container{
+    background-color: rgba(255, 227, 226, 1);
+    height: 60px;
+    width: 60px;
+    border-radius: 16px;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    margin: 14px;
+}
+
+.card-title{
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.card-description{
+    margin: 0px;
+    margin-bottom: 24px;
+}
+
+.dialing-number{
+    margin: 0px;
+    font-size: 1.875rem;
+    font-weight: bold;
+}
+
+.service-category{
+    background-color: rgba(242, 242, 242, 1);
+    font-size: 1.125rem;
+    height: 32px;
+    width: 80px;
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: center;       /* vertical center */
+    margin: 0px 0px 16px 0px;
+}
+
+
+.card-button-section{
+    display: flex;
+    gap: 8px;
+}
+.card-button{
+    width: 182px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+}
+
+.call-button{
+    background-color: rgba(0, 166, 62, 1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.copy-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
