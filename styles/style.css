@@ -7,13 +7,18 @@
   font-style: normal;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 
 /* NAV BAR */
 .nav-bar{
     max-width: 1920px;
+    margin: 0px auto;
     height: 100px;
     /* background-color: cyan; */
-    /* border: 2px red dashed; */
+    /* border: 4px red dashed; */
 
     display: flex;
     align-items: center;
@@ -122,8 +127,8 @@
 /* Hero Section */
 
 .hero-section{
-    /* border: 2px red solid; */
-    max-width: 1800px;
+    border: 4px black dashed;
+    max-width: 1920px;
     height: 239px;
     background: radial-gradient(circle, #006747, #013223);
     display: flex;
@@ -132,6 +137,7 @@
     justify-content: center; 
     align-items: center;
     padding: 21px 0px 21px 0px;
+    margin: 0px auto;
 }
 
 .hero-logo{
@@ -159,58 +165,27 @@
 /* Main Section */
 
 .main-section{
+    background-color: #f2f5f4;
     max-width: 1800px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    display: flex;
     gap: 30px;
-    border: 2px green solid;
+    border: 4px blue solid;
+    margin: 0px auto;
+    justify-content: center;
+}
+
+.card-section{
+    /* max-width: 1370px; */
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .card-item{
-    border: 2px red solid;
-    /* height: 300px; */
-    /* width: 436.67px; */
+    background-color: white;
     padding: 32px;
     border-radius: 12px;
-}
-
-.history-section{
-    grid-row: 1 / 4;
-    grid-column: 4 / 5;
-    border: 2px green dashed;
-    padding: 24px;
-    border-radius: 12px;
-
-    max-width: 352px;
-    
-}
-
-.history-title{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.history-top-section{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.history-top-section button{
-    background-color: rgba(0, 166, 62, 1);
-    height: 52px;
-    border-radius: 50px;
-    width: 114px;
-    color: white;
-    font-weight: bold;
-    border: none;
-}
-
-.history-title h4{
-    font-size: 1.25rem;
-    font-weight: bold;
 }
 
 .card-top-section{
@@ -266,13 +241,16 @@
     margin: 0px 0px 16px 0px;
 }
 
-
 .card-button-section{
     display: flex;
     gap: 8px;
+    max-width: none;
+    width: 100%;
+    /* border: 2px green dashed; */
 }
 .card-button{
-    width: 182px;
+    flex: 1;
+    max-width: none;
     height: 40px;
     border-radius: 8px;
     border: none;
@@ -294,5 +272,127 @@
     gap: 6px;
 }
 
+/* History Section */
+
+.history-section{
+    background-color: white;
+    border: 2px green dashed;
+    padding: 24px;
+    border-radius: 12px;
+    width: 25%;
+}
+
+.history-title{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 136px;
+}
+
+.history-top-section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.history-top-section button{
+    background-color: rgba(0, 166, 62, 1);
+    height: 52px;
+    border-radius: 50px;
+    min-width: 114px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.history-title h4{
+    font-size: 1.125rem;
+    font-weight: bold;
+}
 
 
+/* Responsiveness */
+
+@media screen and (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-section {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .history-section {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-logo{
+    /* display: none; */
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+
+  .nav-bar {
+    flex-direction: column;
+    height: auto;
+    /* padding: 10px; */
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  .name-logo{
+    /* border: 2px dashed red; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin: 0px auto;
+    padding: 5px;
+    height: auto;
+    width: auto;
+  }
+
+  .name-logo p{
+    font-size: 1.1rem;
+    /* border: 2px solid yellow; */
+  }
+
+  .nav-gov-logo{
+    /* border: 2px solid blue; */
+    height: 60px;
+    width: 60px;
+  }
+
+  .nav-right-plane {
+    /* border: 2px solid brown; */
+    margin: 0px auto;
+  }
+
+  .heart-count{
+    width: auto;
+  }
+
+  .coin-count{
+    width: auto;
+  }
+
+  .copy-count{
+    width: auto;
+  }
+}
