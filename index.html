@@ -15,6 +15,10 @@
 
     <!-- Making Font Awesome Icons Available -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Inter Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
 </head>
 
 <body class="hind-madurai-regular">
@@ -27,7 +31,7 @@
             </div>
             <div class="nav-right-plane">
                 <div class="heart-count">
-                    <p>0</p>
+                    <p id="heart-count">0</p>
                     <img src="assets/heart.png" alt="Heart Logo" class="heart-logo">
                 </div>
                 <div class="coin-count">
@@ -58,7 +62,7 @@
                         <div class="card-icon-container">
                             <img src="assets/emergency.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">National Emergency Number</h3>
                     <p class="card-description">National Emergency</p>
@@ -76,7 +80,7 @@
                         <div id="police-container-color" class="card-icon-container">
                             <img src="assets/police.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Police Helpline Number</h3>
                     <p class="card-description">Police</p>
@@ -94,7 +98,7 @@
                         <div class="card-icon-container">
                             <img src="assets/fire-service.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Fire Service Number</h3>
                     <p class="card-description">Fire Service</p>
@@ -112,7 +116,7 @@
                         <div class="card-icon-container">
                             <img src="assets/ambulance.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Ambulance Service</h3>
                     <p class="card-description">Ambulance</p>
@@ -130,7 +134,7 @@
                         <div class="card-icon-container">
                             <img src="assets/woman-girl-96.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Women & Child Helpline</h3>
                     <p class="card-description">Women & Child Helpline</p>
@@ -148,7 +152,7 @@
                         <div class="card-icon-container">
                             <img src="assets/anti-corruption.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Anti-Corruption Helpline</h3>
                     <p class="card-description">Anti-Corruption</p>
@@ -166,7 +170,7 @@
                         <div class="card-icon-container">
                             <img src="assets/electricity-icon.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Electricity Helpline</h3>
                     <p class="card-description">Electricity Outage</p>
@@ -184,7 +188,7 @@
                         <div class="card-icon-container">
                             <img src="assets/brac.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Brac Helpline</h3>
                     <p class="card-description">Brac</p>
@@ -202,7 +206,7 @@
                         <div class="card-icon-container">
                             <img src="assets/train-solid-full.png" alt="" class="icon">
                         </div>
-                        <i class="fa-solid fa-heart"></i>
+                        <i id="" class="fa-solid fa-heart heart-icon" onclick="heartClick(event)"></i>
                     </div>
                     <h3 class="card-title">Bangladesh Railway Helpline</h3>
                     <p class="card-description">Bangladesh Railway</p>
@@ -225,15 +229,50 @@
                         <h4>Call History</h4>
                     </div>
                     <button>Clear</button>
-                </div> 
+                </div>
+                
+                <div class="new-history">
+                    <div class="new-history-service-details">
+                        <p class="new-history-service-title">Fire Service Number</p>
+                        <p class="new-history-service-number">999</p>
+                    </div>
+                    <div>
+                        <p class="calling-time">11:36:58 AM</p>
+                    </div>
+                </div>
+                
             </div>
-            
+
         </div>
-
     </main>
-    <footer>
 
-    </footer>
+    <script>
+        // const hearIcons = document.getElementsByClassName('heart-icon');
+        // for(let icon of hearIcons){
+        //     console.log(icon);
+        // }
+        function heartClick(event){
+            // console.log('Heart Clicked');
+
+            if(event.target.style.color !== 'red'){
+
+                // to set the color of the heart icon to red
+                event.target.style.color = 'red';
+
+                // get the number from <p> and convert it into number
+                currentHeartCount = Number((document.getElementById('heart-count')).innerText);
+                
+                // increase the heart count
+                currentHeartCount++;
+
+                // set the heart count
+                document.getElementById('heart-count').innerText = currentHeartCount;
+            }
+            else{
+                alert("Already Clicked and Liked!");
+            }
+        }
+    </script>
     
 </body>
 </html>

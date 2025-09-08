@@ -311,6 +311,29 @@
     font-weight: bold;
 }
 
+.new-history{
+    /* border: 2px solid red; */
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-history-service-details{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px dashed blue; */
+}
+
+.new-history-service-details p{
+    margin: 0px;
+    font-size: 1rem;
+}
+
+.new-history-service-title{
+    font-weight: 600;
+}
+
 
 /* Responsiveness */
 
