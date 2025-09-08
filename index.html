@@ -35,7 +35,7 @@
                     <img src="assets/heart.png" alt="Heart Logo" class="heart-logo">
                 </div>
                 <div class="coin-count">
-                    <p>100</p>
+                    <p id="coin-count">100</p>
                     <img src="assets/coin.png" alt="Coin Logo" class="coin-logo">
                 </div>
                 <div class="copy-count">
@@ -70,7 +70,7 @@
                     <p class="service-category">All</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                     <p class="service-category">Police</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                     <p class="service-category">Fire</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -124,7 +124,7 @@
                     <p class="service-category">Health</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@
                     <p class="service-category">Help</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -160,7 +160,7 @@
                     <p class="service-category">Govt.</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -178,7 +178,7 @@
                     <p class="service-category">Electricity</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -196,7 +196,7 @@
                     <p class="service-category">NGO</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -214,7 +214,7 @@
                     <p class="service-category">Travel</p>
                     <div class="card-button-section">
                         <button class="card-button copy-button"><i class="fa-regular fa-copy"></i> Copy</button>
-                        <button class="card-button call-button"><i class="fa-solid fa-phone"></i> Call</button>
+                        <button class="card-button call-button" onclick="callingService(event)"><i class="fa-solid fa-phone"></i> Call</button>
                     </div>
                 </div>
 
@@ -228,10 +228,10 @@
                         <i class="fa-regular fa-clock"></i>
                         <h4>Call History</h4>
                     </div>
-                    <button>Clear</button>
+                    <button onclick="clearHistory()">Clear</button>
                 </div>
                 
-                <div class="new-history">
+                <!-- <div class="new-history">
                     <div class="new-history-service-details">
                         <p class="new-history-service-title">Fire Service Number</p>
                         <p class="new-history-service-number">999</p>
@@ -239,7 +239,7 @@
                     <div>
                         <p class="calling-time">11:36:58 AM</p>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
 
@@ -272,6 +272,81 @@
                 alert("Already Clicked and Liked!");
             }
         }
+
+        function callingService(event){
+            
+            if(Number((document.getElementById('coin-count')).innerText) >= 20){
+                // getting the service title
+                let parentNode = (event.target.parentNode).parentNode;
+                let serviceTitle = parentNode.querySelector('h3').innerText;
+                // getting the dialing service number
+                let serviceNumber = parentNode.querySelector('.dialing-number').innerText;
+                // generating the message
+                let message = "Calling " + serviceTitle + " "+ serviceNumber + "!";
+                alert(message);
+                // adjusting coin count
+                currentCoinCount = Number((document.getElementById('coin-count')).innerText);
+                currentCoinCount = currentCoinCount - 20;
+                (document.getElementById('coin-count')).innerText = currentCoinCount;
+
+                // logging call history
+                // creating the new history container
+                let newHistory = document.createElement('div');
+                newHistory.className = 'new-history';
+
+                // creating new history service details 
+                let serviceDetails = document.createElement('div');
+                serviceDetails.className = 'new-history-service-details';
+
+                // creating new history service title
+                let title = document.createElement('p');
+                title.className = 'new-history-service-title';
+                title.innerText = serviceTitle;
+
+                // creating new history service number
+                let number = document.createElement('p');
+                number.className = 'new-history-service-number';
+                number.innerText = serviceNumber;
+
+                // appending service title and number to service details
+                serviceDetails.appendChild(title);
+                serviceDetails.appendChild(number);
+
+                // creating history calling time
+                // function getting dynamic time
+                function getCurrentTime() {
+                    let now = new Date();
+                    return now.toLocaleTimeString(); // e.g., "9:49:00 PM"
+                }
+
+                let time = document.createElement('p');
+                time.className = 'calling-time';
+                time.innerText = getCurrentTime();
+
+                // appending history service details and calling time to the container
+                newHistory.appendChild(serviceDetails);
+                newHistory.appendChild(time); 
+
+                // append new calling history to the history section
+                let historySection = document.querySelector('.history-section');
+                historySection.appendChild(newHistory);
+            }
+
+            else{
+                alert("Not Enough Coin!");
+            }
+        }
+
+        function clearHistory(){
+            alert("Clear Button Clicked!")
+            let historySection = document.querySelector('.history-section');
+            let callHistories = historySection.querySelectorAll('.new-history');
+            for(let callHistory of callHistories){
+                callHistory.innerHTML = '';
+            }
+        }
+
+
     </script>
     
 </body>
